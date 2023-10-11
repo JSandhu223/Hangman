@@ -1,2 +1,23 @@
-// Words to guess
-const words = {apple, clock, grenade};
+// List of words
+const words = ["apple", "clock", "grenade"];
+
+function createLetterPlaceholders(selectedWord) {
+    console.log(selectedWord);
+}
+
+function displayWordTiles(selectedWord) {
+    let wordDisplay = document.getElementById('word-display');
+    let letters = document.getElementsByClassName('letter');
+}
+
+
+function startNewGame() {
+    // Select a word from the list of words (for testing, this will be the first word)
+    const selectedWord = words[0];
+
+    createLetterPlaceholders(selectedWord);
+    // displayWordTiles(selectedWord);
+}
+
+// Call this when the user clicks button to start a new game.
+startNewGame();
