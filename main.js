@@ -2,7 +2,15 @@
 const words = ["apple", "clock", "grenade"];
 
 function createLetterPlaceholders(selectedWord) {
-    console.log(selectedWord);
+    // console.log(selectedWord); // DEBUG
+    let wordDisplay = document.getElementById("word-display");
+
+    for (let i = 0; i < selectedWord.length; i++) {
+        let letterSpan = document.createElement("span");
+        letterSpan.className = "letter";
+        letterSpan.textContent = "#";
+        wordDisplay.appendChild(letterSpan);
+    }
 }
 
 function displayWordTiles(selectedWord) {
