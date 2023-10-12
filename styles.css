@@ -1,7 +1,12 @@
+/* Gradient style is based on: https://codepen.io/naprirfan/pen/xEvRae */
 body {
     background-color: #183a70;
     margin: 0;
     /* overflow: hidden; */
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.25) 0.05em, transparent 0.05em),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.25) 0.05em, transparent 0.05em);
+    background-size: 3em 3em;
 }
 
 #title {
@@ -22,6 +27,7 @@ body {
     flex-wrap: nowrap;
     justify-content: space-between;
     position: relative;
+    z-index: 2;
 }
 
 .player-hud p, a {
