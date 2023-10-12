@@ -16,7 +16,7 @@ body {
     text-align: center;
 }
 
-.game-area {
+#game-area {
     border: 3px solid black;
     height: 100vh;
 }
@@ -55,9 +55,9 @@ body {
 }
 
 #word-display {
-    /* display: flex;
+    display: flex;
     justify-content: center;
-    align-items: center; */
+    align-items: center;
     position: absolute;
     bottom: 20px;
     left: 50%;
@@ -69,4 +69,21 @@ body {
     color: white;
     margin-left: 1px;
     border: 3px solid black;
+    font-size: 6em;
+}
+
+.floating-letter {
+    color: white;
+    background: red;
+    position: absolute;
+    font-size: 3em;
+    width: 1.25em;
+    height: 1.25em;
+    text-align: center;
+
+    /* THESE ARE TEMPORARY (DEBUGGING ONLY) */
+    left: 50%;
+    right: 50%;
+    top: 50%;
+    bottom: 50%;
 }
