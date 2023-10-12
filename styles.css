@@ -14,15 +14,26 @@ body {
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
+    position: relative;
 }
 
 .player-hud p, a {
     color: white;
 }
 
+#score {
+    text-align: left;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
 /* All elements on right side of HUD are right-aligned */
 #timer-health-question {
     text-align: right;
+    position: absolute;
+    top: 5px;
+    right: 5px;
 }
 
 /* Displaying question (JS functionality later) */
@@ -37,10 +48,13 @@ body {
 
 
 #word-display {
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
-    /* text-align: center; */
+    align-items: center; */
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    right: 50%;
 }
 
 /* These are the dynamically added spans that serve as letter placeholders */
