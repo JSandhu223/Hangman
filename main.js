@@ -14,10 +14,17 @@ function createLetterPlaceholders(selectedWord) {
 }
 
 function displayWordTiles(selectedWord) {
-    let wordDisplay = document.getElementById('word-display');
-    let letters = document.getElementsByClassName('letter');
+    let wordDisplay = document.getElementById("word-display");
+    let letters = document.getElementsByClassName("letter");
 }
 
+function spawnFloatingLetter() {
+    let floatingLetter = document.createElement("span");
+    floatingLetter.className = "floating-letter";
+    floatingLetter.textContent = "A";
+    let gameArea = document.getElementById("game-area");
+    gameArea.appendChild(floatingLetter);
+}
 
 function startNewGame() {
     // Select a word from the list of words (for testing, this will be the first word)
@@ -25,6 +32,8 @@ function startNewGame() {
 
     createLetterPlaceholders(selectedWord);
     // displayWordTiles(selectedWord);
+
+    spawnFloatingLetter();
 }
 
 // Call this when the user clicks button to start a new game.
