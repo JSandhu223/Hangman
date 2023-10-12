@@ -1,5 +1,7 @@
 body {
     background-color: #183a70;
+    margin: 0;
+    /* overflow: hidden; */
 }
 
 #title {
@@ -7,6 +9,11 @@ body {
     font-family: "Dela Gothic One", sans-serif;
     font-size: 4em;
     text-align: center;
+}
+
+.game-area {
+    border: 3px solid black;
+    height: 100vh;
 }
 
 .player-hud {
@@ -41,17 +48,12 @@ body {
     text-decoration: underline;
 }
 
-.game-area {
-    border: 3px solid black;
-    height: 100vh;
-}
-
 #word-display {
     /* display: flex;
     justify-content: center;
     align-items: center; */
     position: absolute;
-    bottom: 10px;
+    bottom: 20px;
     left: 50%;
     right: 50%;
 }
