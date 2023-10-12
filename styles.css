@@ -46,6 +46,11 @@ body {
     height: auto;
 }
 
+#interactive-area {
+    height: 100vh;
+    border: 3px dashed green;
+}
+
 
 #word-display {
     /* display: flex;
