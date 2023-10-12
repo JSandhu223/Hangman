@@ -8,7 +8,7 @@ function createLetterPlaceholders(selectedWord) {
     for (let i = 0; i < selectedWord.length; i++) {
         let letterSpan = document.createElement("span");
         letterSpan.className = "letter";
-        letterSpan.textContent = "_";
+        letterSpan.textContent = "?";
         wordDisplay.appendChild(letterSpan);
     }
 }

@@ -32,6 +32,7 @@ body {
 
 .player-hud p, a {
     color: white;
+    font-family: "Dela Gothic One", sans-serif;
 }
 
 #score {
