@@ -19,7 +19,7 @@ function displayWordTiles(selectedWord) {
 }
 
 function spawnFloatingLetter() {
-    let floatingLetter = document.createElement("span");
+    let floatingLetter = document.createElement("div");
     floatingLetter.className = "floating-letter";
     floatingLetter.textContent = "A";
     let gameArea = document.getElementById("game-area");
