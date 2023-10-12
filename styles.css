@@ -55,9 +55,9 @@ body {
 }
 
 #word-display {
-    /* display: flex;
+    display: flex;
     justify-content: center;
-    align-items: center; */
+    align-items: center;
     position: absolute;
     bottom: 20px;
     left: 50%;
@@ -69,4 +69,5 @@ body {
     color: white;
     margin-left: 1px;
     border: 3px solid black;
+    font-size: 6em;
 }
