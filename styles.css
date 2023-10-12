@@ -24,6 +24,7 @@ body {
 #timer-health-question {
     text-align: right;
 }
+
 /* Displaying question (JS functionality later) */
 #question {
     text-decoration: underline;
@@ -32,4 +33,19 @@ body {
 .game-area {
     border: 3px solid black;
     height: auto;
+}
+
+
+#word-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* text-align: center; */
+}
+
+/* These are the dynamically added spans that serve as letter placeholders */
+.letter {
+    color: white;
+    margin-left: 1px;
+    border: 3px solid black;
 }
