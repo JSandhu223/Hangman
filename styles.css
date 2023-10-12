@@ -32,7 +32,7 @@ body {
     text-align: left;
     position: absolute;
     top: 5px;
-    left: 5px;
+    left: 10px;
 }
 
 /* All elements on right side of HUD are right-aligned */
@@ -40,7 +40,7 @@ body {
     text-align: right;
     position: absolute;
     top: 5px;
-    right: 5px;
+    right: 10px;
 }
 
 /* Displaying question (JS functionality later) */
