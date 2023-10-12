@@ -13,6 +13,11 @@ function createLetterPlaceholders(selectedWord) {
     }
 }
 
+// Update the position of the floating letter
+function updatePosition () {
+
+}
+
 // function displayWordTiles(selectedWord) {
 //     let wordDisplay = document.getElementById("word-display");
 //     let letters = document.getElementsByClassName("letter");
