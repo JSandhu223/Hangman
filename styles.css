@@ -1,5 +1,6 @@
 * {
     cursor: crosshair;
+    user-select: none;
 }
 
 /* Gradient style is based on: https://codepen.io/naprirfan/pen/xEvRae */
