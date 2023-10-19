@@ -43,8 +43,12 @@ function spawnFloatingLetter() {
     gameArea.appendChild(floatingLetter);
 }
 
-function startTimer() {
-    
+function setTimer() {
+    // Set the timer to 3 minutes (180 seconds)
+    let totalTime = 180;
+
+    let timeRemaining = document.getElementById("time-remaining");
+    timeRemaining.textContent = totalTime;
 }
 
 // Called every time a new game is started. Starts from a clean slate.
@@ -57,7 +61,7 @@ function startNewGame() {
 
     spawnFloatingLetter();
 
-    startTimer();
+    setTimer();
 }
 
 // Call this when the user clicks button to start a new game.
