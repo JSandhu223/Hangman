@@ -32,6 +32,20 @@ body {
 
 .player-hud p, a {
     color: white;
+    font-family: "Dela Gothic One", sans-serif;
+}
+
+.player-health {
+    display: flex;
+    flex-direction: row-reverse;
+    color: white;
+    font-family: "Dela Gothic One", sans-serif;
+    margin-bottom: 5px;
+}
+
+ .player-health-heart {
+    width:  3em;
+    height: 3em;
 }
 
 #score {

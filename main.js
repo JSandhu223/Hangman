@@ -1,16 +1,22 @@
 // List of words
 const words = ["apple", "clock", "grenade"];
 
+// TODO: dynamically allocate as many placeholders as there are letters for the RANDOMLY selected word.
 function createLetterPlaceholders(selectedWord) {
-    // console.log(selectedWord); // DEBUG
+    console.log(selectedWord); // DEBUG
     let wordDisplay = document.getElementById("word-display");
 
     for (let i = 0; i < selectedWord.length; i++) {
         let letterSpan = document.createElement("span");
         letterSpan.className = "letter";
-        letterSpan.textContent = "_";
+        letterSpan.textContent = "?";
         wordDisplay.appendChild(letterSpan);
     }
+}
+
+// Update the position of the floating letter
+function updatePosition () {
+
 }
 
 // function displayWordTiles(selectedWord) {
@@ -20,9 +26,10 @@ function createLetterPlaceholders(selectedWord) {
 
 // Handle the user clicking on a floating letter
 function handleFloatingLetterClick() {
-    alert("Floating letter clicked");
+    // alert("Floating letter clicked");
 }
 
+// TODO: randomize letter to be spawned
 function spawnFloatingLetter() {
     let floatingLetter = document.createElement("div");
     floatingLetter.className = "floating-letter";
