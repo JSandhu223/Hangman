@@ -43,6 +43,10 @@ function spawnFloatingLetter() {
     gameArea.appendChild(floatingLetter);
 }
 
+function startTimer() {
+    
+}
+
 // Called every time a new game is started. Starts from a clean slate.
 function startNewGame() {
     // Select a word from the list of words (for testing, this will be the first word)
@@ -52,6 +56,8 @@ function startNewGame() {
     // displayWordTiles(selectedWord);
 
     spawnFloatingLetter();
+
+    startTimer();
 }
 
 // Call this when the user clicks button to start a new game.
