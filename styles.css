@@ -46,6 +46,7 @@ body {
  .player-health-heart {
     width:  3em;
     height: 3em;
+    pointer-events: none;
 }
 
 #score {
