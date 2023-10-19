@@ -1,3 +1,8 @@
+* {
+    cursor: crosshair;
+    user-select: none;
+}
+
 /* Gradient style is based on: https://codepen.io/naprirfan/pen/xEvRae */
 body {
     background-color: #183a70;
@@ -46,6 +51,7 @@ body {
  .player-health-heart {
     width:  3em;
     height: 3em;
+    pointer-events: none;
 }
 
 #score {
