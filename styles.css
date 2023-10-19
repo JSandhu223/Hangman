@@ -40,6 +40,14 @@ body {
     font-family: "Dela Gothic One", sans-serif;
 }
 
+.timer {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    color: white;
+    font-family: "Dela Gothic One", sans-serif;
+}
+
 .player-health {
     display: flex;
     flex-direction: row-reverse;
