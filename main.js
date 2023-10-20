@@ -47,8 +47,15 @@ function setTimer() {
     // Set the timer to 3 minutes (180 seconds)
     let totalTime = 180;
 
-    let timeRemaining = document.getElementById("time-remaining");
-    timeRemaining.textContent = totalTime;
+    let time = document.getElementById("time-remaining");
+    time.textContent = totalTime;
+}
+
+function updateTimer() {
+    let time = document.getElementById("time-remaining");
+    let timeRemaining = Number(time.textContent);
+    let newTime = String(timeRemaining - 1);
+    time.textContent = newTime;
 }
 
 // Called every time a new game is started. Starts from a clean slate.
@@ -62,6 +69,8 @@ function startNewGame() {
     spawnFloatingLetter();
 
     setTimer();
+
+    updateTimer();
 }
 
 // Call this when the user clicks button to start a new game.
