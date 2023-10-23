@@ -49,19 +49,36 @@ function spawnFloatingLetter() {
     gameArea.appendChild(floatingLetter);
 }
 
+// TODO: Handle setting max time for timer.
 function setTimer() {
     // Set the timer to 3 minutes (180 seconds)
-    let totalTime = 180;
+    // let totalTime = 180;
 
-    let time = document.getElementById("time-remaining");
-    time.textContent = totalTime;
+    // let time = document.getElementById("time-remaining");
+    // time.textContent = totalTime;
 }
 
+// TODO: Handle updating remaining time
 function updateTimer() {
-    let time = document.getElementById("time-remaining");
-    let timeRemaining = Number(time.textContent);
-    let newTime = String(timeRemaining - 1);
-    time.textContent = newTime;
+    // let time = document.getElementById("time-remaining");
+    // let timeRemaining = Number(time.textContent);
+    // let newTime = String(timeRemaining - 1);
+    // time.textContent = newTime;
+}
+
+// TODO: handle user losing health from selecting incorrect letter
+function removeHealth() {
+
+}
+
+// TODO: handle granting bonus points to user if they are on a streak
+function grantBonusPoints () {
+
+}
+
+// TODO: handle filling placeholder with correctly guessed letter
+function fillLetter() {
+
 }
 
 // Called every time a new game is started. Starts from a clean slate.
