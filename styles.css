@@ -1,3 +1,9 @@
+/* Course: SENG 513 */
+/* Date: OCT 23, 2023 */
+/* Assignment 2 */
+/* Name: Jasraj Sandhu */
+/* UCID: 30054475 */
+
 * {
     cursor: crosshair;
     user-select: none;
@@ -36,6 +42,14 @@ body {
 }
 
 .player-hud p, a {
+    color: white;
+    font-family: "Dela Gothic One", sans-serif;
+}
+
+.timer {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
     color: white;
     font-family: "Dela Gothic One", sans-serif;
 }
