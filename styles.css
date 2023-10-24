@@ -20,11 +20,27 @@ body {
     background-size: 3em 3em;
 }
 
+.main-menu {
+    text-align: center;
+}
+
 #title {
     color: white;
     font-family: "Dela Gothic One", sans-serif;
     font-size: 4em;
     text-align: center;
+}
+
+#play-button {
+    color: white;
+    background-color: blue;
+    border: none;
+    border-radius: 25%;
+    text-align: center;
+    font-size: 2em;
+    width: fit-content;
+    height: fit-content;
+    margin-top: 10%;
 }
 
 #game-area {
