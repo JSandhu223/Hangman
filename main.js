@@ -7,7 +7,7 @@
 // List of words
 const words = ["apple", "clock", "grenade"];
 // Maximum timer allowed for player to guess word
-let timeRemaining = 10;
+let timeRemaining = 0;
 
 
 // TODO: dynamically allocate as many placeholders as there are letters for the RANDOMLY selected word.
@@ -97,13 +97,13 @@ function startNewGame() {
     createLetterPlaceholders(selectedWord);
     // displayWordTiles(selectedWord);
 
-    spawnFloatingLetter();
-
     // Set timer element in HTML
+    timeRemaining = 10;
     setTimer(timeRemaining);
-
-    // Update timer every second
+    // Update timer (this gets called every second)
     updateTimer();
+
+    spawnFloatingLetter();
 }
 
 // Call this when the user clicks button to start a new game.
