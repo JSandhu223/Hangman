@@ -6,6 +6,9 @@
 
 // List of words
 const words = ["apple", "clock", "grenade"];
+// Maximum timer allowed for player to guess word
+let timeRemaining = 10;
+
 
 // TODO: dynamically allocate as many placeholders as there are letters for the RANDOMLY selected word.
 function createLetterPlaceholders(selectedWord) {
@@ -49,21 +52,26 @@ function spawnFloatingLetter() {
     gameArea.appendChild(floatingLetter);
 }
 
-// TODO: Handle setting max time for timer.
-function setTimer() {
-    // Set the timer to 3 minutes (180 seconds)
-    // let totalTime = 180;
-
-    // let time = document.getElementById("time-remaining");
-    // time.textContent = totalTime;
+function setTimer(timeRemaining) {
+    let t = String(timeRemaining);
+    let currentTimer = document.getElementById("time-remaining");
+    currentTimer.textContent = t;
 }
 
 // TODO: Handle updating remaining time
 function updateTimer() {
-    // let time = document.getElementById("time-remaining");
-    // let timeRemaining = Number(time.textContent);
-    // let newTime = String(timeRemaining - 1);
-    // time.textContent = newTime;
+    let countdown = setInterval(function() {  
+        // Check if the timer has reached 0 seconds
+        if (timeRemaining === 0) {
+            clearInterval(countdown); // Stop the countdown when it reaches 0
+            return;
+        }
+        
+        // Decrease the time by 1 second
+        timeRemaining--;
+        // Update time remaining on HTML page
+        setTimer(timeRemaining);
+    }, 1000); // Update every 1000 milliseconds (1 second)
 }
 
 // TODO: handle user losing health from selecting incorrect letter
@@ -91,8 +99,10 @@ function startNewGame() {
 
     spawnFloatingLetter();
 
-    setTimer();
+    // Set timer element in HTML
+    setTimer(timeRemaining);
 
+    // Update timer every second
     updateTimer();
 }
 
