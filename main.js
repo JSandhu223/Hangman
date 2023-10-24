@@ -33,11 +33,6 @@ function updatePosition () {
 //     let letters = document.getElementsByClassName("letter");
 // }
 
-// Handle the user clicking on a floating letter
-function handleFloatingLetterClick() {
-    // alert("Floating letter clicked");
-}
-
 // TODO: randomize letter to be spawned
 function spawnFloatingLetter() {
     let floatingLetter = document.createElement("div");
