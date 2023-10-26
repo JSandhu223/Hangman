@@ -33,12 +33,20 @@ function updatePosition () {
 //     let letters = document.getElementsByClassName("letter");
 // }
 
+// Select random letter
+function randomLetter() {
+    const letters = 'abcdefghijklmnopqrstuvwxyz'; // letters of alphabet
+    const randomIndex = Math.floor(Math.random() * letters.length); // get random int x, where 0 <= x < = 25
+    let chosenLetter = letters[randomIndex]; // return the "character" (actually a string) at index of randomIndex
+    return chosenLetter.toUpperCase(); // Return the randomly chosen letter in uppercase
+}
+
 // TODO: randomize letter to be spawned
 function spawnFloatingLetter() {
     let floatingLetter = document.createElement("div");
     floatingLetter.className = "floating-letter";
     // Assign a random letter (for now, use "A")
-    floatingLetter.textContent = "A";
+    floatingLetter.textContent = randomLetter();
     
     // Add a click event listener to the floating letters
     floatingLetter.addEventListener("click", handleFloatingLetterClick);
