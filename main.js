@@ -131,6 +131,8 @@ window.addEventListener("load", function () {
 // play.addEventListener("click", handlePlayClick);
 
 // Handle the user clicking on a floating letter
-function handleFloatingLetterClick() {
-    alert("Floating letter clicked");
+function handleFloatingLetterClick(event) {
+    const clickedElement = event.target;
+    const clickedLetter = clickedElement.textContent;
+    alert(`Floating letter ${clickedLetter} clicked`);
 }
