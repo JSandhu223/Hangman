@@ -8,6 +8,8 @@
 const words = ["apple", "clock", "grenade"];
 // Maximum timer allowed for player to guess word
 let timeRemaining = 0;
+let selectedWord = null;
+
 
 
 // TODO: dynamically allocate as many placeholders as there are letters for the RANDOMLY selected word.
@@ -83,8 +85,18 @@ function grantBonusPoints () {
 }
 
 // TODO: check if user guessed the correct letter
-function checkGuess() {
-
+function checkGuess(clickedLetter) {
+    // Convert clicked letter to lowercase
+    clickedLetter = clickedLetter.toLowerCase();
+    // Check if the word to guess contains the letter
+    if (selectedWord.toLowerCase().includes(clickedLetter)) {
+        alert("Correct guess");
+        return true;
+    }
+    else {
+        alert("Incorrect guess");
+        return false;
+    }
 }
 
 // TODO: handle user losing health from selecting incorrect letter
@@ -100,7 +112,7 @@ function fillLetter() {
 // Called every time a new game is started. Starts from a clean slate.
 function startNewGame() {
     // Select a word from the list of words (for testing, this will be the first word)
-    const selectedWord = words[0];
+    selectedWord = words[0];
 
     createLetterPlaceholders(selectedWord);
     // displayWordTiles(selectedWord);
@@ -135,4 +147,11 @@ function handleFloatingLetterClick(event) {
     const clickedElement = event.target;
     const clickedLetter = clickedElement.textContent;
     alert(`Floating letter ${clickedLetter} clicked`);
+    if (checkGuess(clickedLetter)) {
+        // Fill out placeholder(s)
+    }
+    else {
+        removeHealth(); // reduce health
+        // reduce timer by n seconds
+    }
 }
