@@ -69,13 +69,18 @@ function updateTimer() {
     }, 1000); // Update every 1000 milliseconds (1 second)
 }
 
-// TODO: handle user losing health from selecting incorrect letter
-function removeHealth() {
+// TODO: handle granting bonus points to user if they are on a streak
+function grantBonusPoints () {
 
 }
 
-// TODO: handle granting bonus points to user if they are on a streak
-function grantBonusPoints () {
+// TODO: check if user guessed the correct letter
+function checkGuess() {
+
+}
+
+// TODO: handle user losing health from selecting incorrect letter
+function removeHealth() {
 
 }
 
