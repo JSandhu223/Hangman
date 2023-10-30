@@ -20,6 +20,7 @@ function createLetterPlaceholders(selectedWord) {
     for (let i = 0; i < selectedWord.length; i++) {
         let letterSpan = document.createElement("span");
         letterSpan.className = "letter";
+        letterSpan.id = "letterIndex" + String(i);
         letterSpan.textContent = "?";
         wordDisplay.appendChild(letterSpan);
     }
@@ -105,8 +106,8 @@ function removeHealth() {
 }
 
 // TODO: handle filling placeholder with correctly guessed letter
-function fillLetter() {
-
+function fillLetter(clickedLetter) {
+    
 }
 
 // Called every time a new game is started. Starts from a clean slate.
@@ -149,6 +150,7 @@ function handleFloatingLetterClick(event) {
     alert(`Floating letter ${clickedLetter} clicked`);
     if (checkGuess(clickedLetter)) {
         // Fill out placeholder(s)
+        fillLetter(clickedLetter);
     }
     else {
         removeHealth(); // reduce health
