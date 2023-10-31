@@ -105,9 +105,16 @@ function removeHealth() {
 
 }
 
-// TODO: handle filling placeholder with correctly guessed letter
+// Handles filling placeholder(s) with correctly guessed letter
 function fillLetter(clickedLetter) {
-    
+    // Get the span elements of the word display (these are children elements of a parent div)
+    let wordDisplay = document.getElementById("word-display");
+    for (let i = 0; i < selectedWord.length; i++) {
+        if (clickedLetter === selectedWord[i].toUpperCase()) {
+            // Fill the letter at that index
+            wordDisplay.children[i].textContent = clickedLetter;
+        }
+    }
 }
 
 // Called every time a new game is started. Starts from a clean slate.
@@ -145,9 +152,11 @@ window.addEventListener("load", function () {
 
 // Handle the user clicking on a floating letter
 function handleFloatingLetterClick(event) {
+    // Grab the element that was clicked
     const clickedElement = event.target;
+    // Extract the text of the clicked element
     const clickedLetter = clickedElement.textContent;
-    alert(`Floating letter ${clickedLetter} clicked`);
+    alert(`Floating letter ${clickedLetter} clicked`); // DEBUG
     if (checkGuess(clickedLetter)) {
         // Fill out placeholder(s)
         fillLetter(clickedLetter);
