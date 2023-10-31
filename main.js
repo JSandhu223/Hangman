@@ -91,11 +91,11 @@ function checkGuess(clickedLetter) {
     clickedLetter = clickedLetter.toLowerCase();
     // Check if the word to guess contains the letter
     if (selectedWord.toLowerCase().includes(clickedLetter)) {
-        alert("Correct guess");
+        console.log("Correct guess");
         return true;
     }
     else {
-        alert("Incorrect guess");
+        console.log("Incorrect guess");
         return false;
     }
 }
@@ -159,7 +159,7 @@ function handleFloatingLetterClick(event) {
     const clickedElement = event.target;
     // Extract the text of the clicked element
     const clickedLetter = clickedElement.textContent;
-    alert(`Floating letter ${clickedLetter} clicked`); // DEBUG
+    console.log(`Floating letter ${clickedLetter} clicked`); // DEBUG
     if (checkGuess(clickedLetter)) {
         // Fill out placeholder(s)
         fillLetter(clickedLetter);
