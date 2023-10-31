@@ -102,7 +102,10 @@ function checkGuess(clickedLetter) {
 
 // TODO: handle user losing health from selecting incorrect letter
 function removeHealth() {
-
+    let playerHealth = document.getElementById("player-health");
+    if (playerHealth.children.length > 0) {
+        playerHealth.removeChild(playerHealth.children[0]);
+    }
 }
 
 // Handles filling placeholder(s) with correctly guessed letter

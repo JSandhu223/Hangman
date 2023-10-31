@@ -70,7 +70,7 @@ body {
     font-family: "Dela Gothic One", sans-serif;
 }
 
-.player-health {
+#player-health {
     display: flex;
     flex-direction: row-reverse;
     color: white;
