@@ -15,20 +15,6 @@ const heartQueue = [];
 const correctGuesses = new Set();
 
 
-// TODO: dynamically allocate as many placeholders as there are letters for the RANDOMLY selected word.
-function createLetterPlaceholders(selectedWord) {
-    console.log(selectedWord); // DEBUG
-    let wordDisplay = document.getElementById("word-display");
-
-    for (let i = 0; i < selectedWord.length; i++) {
-        let letterSpan = document.createElement("span");
-        letterSpan.className = "letter";
-        letterSpan.id = "letterIndex" + String(i);
-        letterSpan.textContent = "?";
-        wordDisplay.appendChild(letterSpan);
-    }
-}
-
 function setHealth() {
     let playerHealth = document.getElementById("player-health");
 
@@ -42,9 +28,18 @@ function setHealth() {
     }
 }
 
-// Update the position of the floating letter
-function updatePosition () {
+// TODO: dynamically allocate as many placeholders as there are letters for the RANDOMLY selected word.
+function createLetterPlaceholders(selectedWord) {
+    console.log(selectedWord); // DEBUG
+    let wordDisplay = document.getElementById("word-display");
 
+    for (let i = 0; i < selectedWord.length; i++) {
+        let letterSpan = document.createElement("span");
+        letterSpan.className = "letter";
+        letterSpan.id = "letterIndex" + String(i);
+        letterSpan.textContent = "?";
+        wordDisplay.appendChild(letterSpan);
+    }
 }
 
 // function displayWordTiles(selectedWord) {
@@ -72,6 +67,11 @@ function spawnFloatingLetter() {
 
     let gameArea = document.getElementById("game-area");
     gameArea.appendChild(floatingLetter);
+}
+
+// Update the position of the floating letter
+function updatePosition () {
+    
 }
 
 function setTimer(timeRemaining) {
