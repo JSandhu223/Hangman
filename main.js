@@ -26,6 +26,18 @@ function createLetterPlaceholders(selectedWord) {
     }
 }
 
+function setHealth() {
+    let playerHealth = document.getElementById("player-health");
+
+    let numHearts = 5;
+    for (let i = 0; i < numHearts; i++) {
+        let heart = document.createElement("img");
+        heart.className = "player-health-heart";
+        heart.src = "images/heart.png";
+        playerHealth.appendChild(heart);
+    }
+}
+
 // Update the position of the floating letter
 function updatePosition () {
 
@@ -104,7 +116,9 @@ function checkGuess(clickedLetter) {
 function removeHealth() {
     let playerHealth = document.getElementById("player-health");
     if (playerHealth.children.length > 0) {
-        playerHealth.removeChild(playerHealth.children[0]);
+        heart = playerHealth.children[0];
+        // playerHealth.removeChild(heart);
+        heart.style.opacity = 0.5;
     }
 }
 
@@ -128,6 +142,8 @@ function startNewGame() {
     createLetterPlaceholders(selectedWord);
     // displayWordTiles(selectedWord);
 
+    setHealth();
+
     // Set timer element in HTML
     timeRemaining = 10;
     setTimer(timeRemaining);
@@ -140,6 +156,7 @@ function startNewGame() {
 
 //////////////////////// Event Handling ///////////////////////////////////
 
+// Start new game upon loading game.html page
 window.addEventListener("load", function () {
     startNewGame();
 })
