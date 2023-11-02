@@ -9,7 +9,8 @@ const words = ["apple", "clock", "grenade"];
 // Maximum timer allowed for player to guess word
 let timeRemaining = 0;
 let selectedWord = null;
-
+// This holds the player health hearts for easier access
+const heartQueue = [];
 
 
 // TODO: dynamically allocate as many placeholders as there are letters for the RANDOMLY selected word.
@@ -35,6 +36,7 @@ function setHealth() {
         heart.className = "player-health-heart";
         heart.src = "images/heart.png";
         playerHealth.appendChild(heart);
+        heartQueue.push(heart);
     }
 }
 
@@ -114,10 +116,8 @@ function checkGuess(clickedLetter) {
 
 // TODO: handle user losing health from selecting incorrect letter
 function removeHealth() {
-    let playerHealth = document.getElementById("player-health");
-    if (playerHealth.children.length > 0) {
-        heart = playerHealth.children[0];
-        // playerHealth.removeChild(heart);
+    let heart = heartQueue.pop();
+    if (heart !== undefined) {
         heart.style.opacity = 0.5;
     }
 }
@@ -142,7 +142,10 @@ function startNewGame() {
     createLetterPlaceholders(selectedWord);
     // displayWordTiles(selectedWord);
 
+    // Set the player's health
     setHealth();
+    // Caveman implementation: reverse the array of hearts
+    heartQueue.reverse();
 
     // Set timer element in HTML
     timeRemaining = 10;
