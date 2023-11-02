@@ -96,6 +96,10 @@ function updateTimer() {
     }, 1000); // Update every 1000 milliseconds (1 second)
 }
 
+function updateScore() {
+    
+}
+
 // TODO: handle granting bonus points to user if they are on a streak
 function grantBonusPoints () {
 
