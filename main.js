@@ -99,13 +99,14 @@ function updateTimer() {
 // Initial score
 function setScore() {
     let score = document.getElementById("score");
-    let playerScore = document.getElementById("player-score");
+    let playerScore = document.createElement("p");
     let initialScore = 0;
-    playerScore.textContent = "Score: " + String(initialScore);
+    playerScore.textContent = String(initialScore);
+    score.appendChild(playerScore);
 }
 
 function updateScore() {
-    
+
 }
 
 // TODO: handle granting bonus points to user if they are on a streak

@@ -85,6 +85,8 @@ body {
 }
 
 #score {
+    display: flex;
+    flex-direction: row;
     text-align: left;
     position: absolute;
     top: 5px;
