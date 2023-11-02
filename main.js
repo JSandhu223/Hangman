@@ -96,6 +96,14 @@ function updateTimer() {
     }, 1000); // Update every 1000 milliseconds (1 second)
 }
 
+// Initial score
+function setScore() {
+    let score = document.getElementById("score");
+    let playerScore = document.getElementById("player-score");
+    let initialScore = 0;
+    playerScore.textContent = "Score: " + String(initialScore);
+}
+
 function updateScore() {
     
 }
@@ -149,7 +157,8 @@ function startNewGame() {
     createLetterPlaceholders(selectedWord);
     // displayWordTiles(selectedWord);
 
-    // Set the player's health
+    // Set the player's score and health
+    setScore();
     setHealth();
     // Caveman implementation: reverse the array of hearts
     heartQueue.reverse();
