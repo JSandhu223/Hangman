@@ -100,13 +100,17 @@ function updateTimer() {
 function setScore() {
     let score = document.getElementById("score");
     let playerScore = document.createElement("p");
+    playerScore.id = "player-score";
     let initialScore = 0;
     playerScore.textContent = String(initialScore);
     score.appendChild(playerScore);
 }
 
 function updateScore() {
-
+    let playerScore = document.getElementById("player-score");
+    let currentScore = parseInt(playerScore.textContent);
+    let newScore = currentScore + 10;
+    playerScore.textContent = String(newScore);
 }
 
 // TODO: handle granting bonus points to user if they are on a streak
@@ -200,6 +204,7 @@ function handleFloatingLetterClick(event) {
     if (checkGuess(clickedLetter)) {
         // Fill out placeholder(s)
         fillLetter(clickedLetter);
+        updateScore();
     }
     else {
         removeHealth(); // reduce health
