@@ -11,6 +11,8 @@ let timeRemaining = 0;
 let selectedWord = null;
 // This holds the player health hearts for easier access
 const heartQueue = [];
+// This holds the correct guesses the player makes. O(1) lookup time
+const correctGuesses = new Set();
 
 
 // TODO: dynamically allocate as many placeholders as there are letters for the RANDOMLY selected word.
@@ -104,8 +106,9 @@ function checkGuess(clickedLetter) {
     // Convert clicked letter to lowercase
     clickedLetter = clickedLetter.toLowerCase();
     // Check if the word to guess contains the letter
-    if (selectedWord.toLowerCase().includes(clickedLetter)) {
+    if (selectedWord.toLowerCase().includes(clickedLetter) && correctGuesses.has(clickedLetter) === false) {
         console.log("Correct guess");
+        correctGuesses.add(clickedLetter);
         return true;
     }
     else {
