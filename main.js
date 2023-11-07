@@ -59,8 +59,15 @@ function randomLetter() {
 function spawnFloatingLetter() {
     let floatingLetter = document.createElement("div");
     floatingLetter.className = "floating-letter";
+    floatingLetter.id = "floating-letter-A";
     // Assign a random letter (for now, use "A")
     floatingLetter.textContent = randomLetter();
+
+    // Set position of floating letter
+    floatingLetter.style.left = "50%";
+    floatingLetter.style.right = "50%";
+    floatingLetter.style.top = "50%";
+    floatingLetter.style.bottom = "50%";
     
     // Add a click event listener to the floating letters
     floatingLetter.addEventListener("click", handleFloatingLetterClick);
@@ -71,7 +78,12 @@ function spawnFloatingLetter() {
 
 // Update the position of the floating letter
 function updatePosition () {
-    
+    let speed = 0.5; // How "fast" the letter will appear to be moving (as a percentage)
+    let floatingLetter = document.getElementById("floating-letter-A");
+    let currentPos = parseInt(floatingLetter.style.left); // Get current position of floating letter
+    console.log(currentPos);
+    currentPos -= speed;
+    floatingLetter.style.left = currentPos + "%"; // Set the position offset in percentage
 }
 
 function setTimer(timeRemaining) {
@@ -175,6 +187,8 @@ function startNewGame() {
     updateTimer();
 
     spawnFloatingLetter();
+    updatePosition();
+    setInterval(updatePosition, 1000);
 }
 
 
