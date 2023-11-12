@@ -13,7 +13,19 @@ let selectedWord = null;
 const heartQueue = [];
 // This holds the correct guesses the player makes. O(1) lookup time
 const correctGuesses = new Set();
+const sampleLetters = new Map();
 
+
+function createSampleLetters() {
+    for (let i = 65; i <= 90; i++) {
+        let letter = String.fromCharCode(i);
+        let floatingLetter = document.createElement("div");
+        floatingLetter.className = "floating-letter";
+        floatingLetter.id = "floating-letter-" + letter;
+        floatingLetter.textContent = letter;
+        sampleLetters.set(letter, floatingLetter);
+    }
+}
 
 function setHealth() {
     let playerHealth = document.getElementById("player-health");
@@ -49,19 +61,19 @@ function createLetterPlaceholders(selectedWord) {
 
 // Select random letter
 function randomLetter() {
-    const letters = 'abcdefghijklmnopqrstuvwxyz'; // letters of alphabet
-    const randomIndex = Math.floor(Math.random() * letters.length); // get random int x, where 0 <= x < = 25
-    let chosenLetter = letters[randomIndex]; // return the "character" (actually a string) at index of randomIndex
-    return chosenLetter.toUpperCase(); // Return the randomly chosen letter in uppercase
+    const min = 65; // Minimum value (ASCII code for 'A')
+    const max = 90; // Maximum value (ASCII code for 'Z')
+
+    const rand = Math.floor(Math.random() * (max - min + 1)) + min;
+    const randomLetter = String.fromCharCode(rand);
+    let chosenLetter = sampleLetters.get(randomLetter);
+    return chosenLetter; // Return the randomly chosen letter
 }
 
 // TODO: randomize letter to be spawned
 function spawnFloatingLetter() {
-    let floatingLetter = document.createElement("div");
-    floatingLetter.className = "floating-letter";
-    floatingLetter.id = "floating-letter-A";
     // Assign a random letter (for now, use "A")
-    floatingLetter.textContent = randomLetter();
+    let floatingLetter = randomLetter();
 
     // Set position of floating letter
     floatingLetter.style.left = "50%";
@@ -77,14 +89,14 @@ function spawnFloatingLetter() {
 }
 
 // Update the position of the floating letter
-function updatePosition () {
-    let speed = 0.5; // How "fast" the letter will appear to be moving (as a percentage)
-    let floatingLetter = document.getElementById("floating-letter-A");
-    let currentPos = parseInt(floatingLetter.style.left); // Get current position of floating letter
-    console.log(currentPos);
-    currentPos -= speed;
-    floatingLetter.style.left = currentPos + "%"; // Set the position offset in percentage
-}
+// function updatePosition () {
+//     let speed = 0.5; // How "fast" the letter will appear to be moving (as a percentage)
+//     let floatingLetter = document.getElementById("floating-letter-A");
+//     let currentPos = parseInt(floatingLetter.style.left); // Get current position of floating letter
+//     // console.log(currentPos); // DEBUG LINE
+//     currentPos -= speed;
+//     floatingLetter.style.left = currentPos + "%"; // Set the position offset in percentage
+// }
 
 function setTimer(timeRemaining) {
     let t = String(timeRemaining);
@@ -170,6 +182,8 @@ function fillLetter(clickedLetter) {
 function startNewGame() {
     // Select a word from the list of words (for testing, this will be the first word)
     selectedWord = words[0];
+    // This is the set of letters A-Z that will be randomly picked from to spawn floating letters
+    createSampleLetters();
 
     createLetterPlaceholders(selectedWord);
     // displayWordTiles(selectedWord);
@@ -187,8 +201,8 @@ function startNewGame() {
     updateTimer();
 
     spawnFloatingLetter();
-    updatePosition();
-    setInterval(updatePosition, 1000);
+    // updatePosition();
+    // setInterval(updatePosition, 1000);
 }
 
 
