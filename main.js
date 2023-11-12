@@ -89,14 +89,19 @@ function spawnFloatingLetter() {
 }
 
 // Update the position of the floating letter
-// function updatePosition () {
-//     let speed = 0.5; // How "fast" the letter will appear to be moving (as a percentage)
-//     let floatingLetter = document.getElementById("floating-letter-A");
-//     let currentPos = parseInt(floatingLetter.style.left); // Get current position of floating letter
-//     // console.log(currentPos); // DEBUG LINE
-//     currentPos -= speed;
-//     floatingLetter.style.left = currentPos + "%"; // Set the position offset in percentage
-// }
+function updatePosition () {
+    let speed = 0.5; // How "fast" the letter will appear to be moving (as a percentage)
+    // Get all floating letters currently on the game screen (stores them in an array)
+    let currentFloatingLetters = document.getElementsByClassName("floating-letter");
+    // Update the position of each floating letter
+    for (let i = 0; i < currentFloatingLetters.length; i++) {
+        let floatingLetter = currentFloatingLetters[i];
+        let currentPos = parseInt(floatingLetter.style.left); // Get current position of floating letter
+        // console.log(currentPos); // DEBUG LINE
+        currentPos -= speed;
+        floatingLetter.style.left = currentPos + "%"; // Set the position offset in percentage
+    }
+}
 
 function setTimer(timeRemaining) {
     let t = String(timeRemaining);
@@ -201,8 +206,8 @@ function startNewGame() {
     updateTimer();
 
     spawnFloatingLetter();
-    // updatePosition();
-    // setInterval(updatePosition, 1000);
+    updatePosition();
+    setInterval(updatePosition, 1000);
 }
 
 
