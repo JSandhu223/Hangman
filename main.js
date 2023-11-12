@@ -216,6 +216,7 @@ function startNewGame() {
     updateTimer();
 
     spawnFloatingLetter();
+    setInterval(spawnFloatingLetter, 2000);
     updatePosition();
     setInterval(updatePosition, 1000);
 }
