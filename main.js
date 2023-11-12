@@ -13,8 +13,17 @@ let selectedWord = null;
 const heartQueue = [];
 // This holds the correct guesses the player makes. O(1) lookup time
 const correctGuesses = new Set();
+const colors = ["red", "green", "blue"];
 const sampleLetters = new Map();
 
+
+function randomColor() {
+    const min = 0; // Minimum value (first index of 'colors')
+    const max = colors.length - 1; // Maximum value (last index of 'colors')
+
+    const rand = Math.floor(Math.random() * (max - min + 1)) + min;
+    return colors[rand];
+}
 
 function createSampleLetters() {
     for (let i = 65; i <= 90; i++) {
@@ -22,7 +31,8 @@ function createSampleLetters() {
         let floatingLetter = document.createElement("div");
         floatingLetter.className = "floating-letter";
         floatingLetter.id = "floating-letter-" + letter;
-        floatingLetter.textContent = letter;
+        floatingLetter.textContent = letter; // Set the text to the letter
+        floatingLetter.style.background = randomColor(); // Randomly select the color
         sampleLetters.set(letter, floatingLetter);
     }
 }
