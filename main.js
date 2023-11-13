@@ -80,16 +80,28 @@ function randomLetter() {
     return chosenLetter; // Return the randomly chosen letter
 }
 
+// Select random number
+function randomPos() {
+    const min = 10; // Minimum value (ASCII code for 'A')
+    const max = 60; // Maximum value (ASCII code for 'Z')
+
+    const rand = Math.floor(Math.random() * (max - min + 1)) + min;
+    return rand; // Return the randomly chosen number
+}
+
 // TODO: randomize letter to be spawned
 function spawnFloatingLetter() {
     // Assign a random letter (for now, use "A")
     let floatingLetter = randomLetter();
 
+    const leftStart = 0;
+    const topStart = randomPos();
+
     // Set position of floating letter
-    floatingLetter.style.left = "50%";
-    floatingLetter.style.right = "50%";
-    floatingLetter.style.top = "50%";
-    floatingLetter.style.bottom = "50%";
+    floatingLetter.style.left = leftStart + "%";
+    floatingLetter.style.top = topStart + "%";
+
+    let size;
     
     // Add a click event listener to the floating letters
     floatingLetter.addEventListener("click", handleFloatingLetterClick);
@@ -100,7 +112,7 @@ function spawnFloatingLetter() {
 
 // Update the position of the floating letter
 function updatePosition () {
-    let speed = 0.5; // How "fast" the letter will appear to be moving (as a percentage)
+    let speed = 1; // How "fast" the letter will appear to be moving (as a percentage)
     // Get all floating letters currently on the game screen (stores them in an array)
     let currentFloatingLetters = document.getElementsByClassName("floating-letter");
     // Update the position of each floating letter
@@ -108,8 +120,8 @@ function updatePosition () {
         let floatingLetter = currentFloatingLetters[i];
         let currentPos = parseInt(floatingLetter.style.left); // Get current position of floating letter
         // console.log(currentPos); // DEBUG LINE
-        currentPos -= speed;
-        floatingLetter.style.left = currentPos + "%"; // Set the position offset in percentage
+        currentPos += speed;
+        floatingLetter.style.left = currentPos + "px"; // Set the position offset in percentage
     }
 }
 
@@ -218,7 +230,7 @@ function startNewGame() {
     spawnFloatingLetter();
     setInterval(spawnFloatingLetter, 2000);
     updatePosition();
-    setInterval(updatePosition, 1000);
+    setInterval(updatePosition, 10);
 }
 
 
