@@ -15,28 +15,30 @@
         <!-- This is where the interactivity happens -->
         <div id="game-area">
             <div class="player-hud">
-                <div id="score"><p>Score: 00000</p></div>
+                <div id="score">
+                    <p>Score:&nbsp</p>
+                    <!-- Player score is added via JS -->
+                </div>
                 <div id="timer-health-question">
                     <div class="timer">
                         <p>Time:&nbsp</p>
                         <p id="time-remaining"></p>
                     </div>
-                    <div class="player-health">
-                        <img class="player-health-heart" src="images/heart.png" />
-                        <img class="player-health-heart" src="images/heart.png" />
-                        <img class="player-health-heart" src="images/heart.png" />
-                        <img class="player-health-heart" src="images/heart.png" />
-                        <img class="player-health-heart" src="images/heart.png" />
+                    <div id="player-health">
+                        <!-- Health hearts are added via JS -->
                     </div>
-                    <a href="#" id="question">DISPLAY QUESTION</a>
+                    <div id="question">DISPLAY QUESTION</div>
                 </div>
             </div>
 
-            <div id="word-display"></div>
+            <div id="word-display">
+                <!-- Letter placeholders are added via JS -->
+            </div>
 
             
         </div>
 
+        <!-- <script src="event-handlers.js"></script> -->
         <script src="main.js"></script>
     </body>
 </html>

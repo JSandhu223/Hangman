@@ -18,6 +18,12 @@ body {
         linear-gradient(rgba(255, 255, 255, 0.25) 0.05em, transparent 0.05em),
         linear-gradient(90deg, rgba(255, 255, 255, 0.25) 0.05em, transparent 0.05em);
     background-size: 3em 3em;
+    /* Prevent horizontal scrolling */
+    overflow-x: hidden;
+}
+
+.main-menu {
+    text-align: center;
 }
 
 #title {
@@ -25,6 +31,18 @@ body {
     font-family: "Dela Gothic One", sans-serif;
     font-size: 4em;
     text-align: center;
+}
+
+#play-button {
+    color: white;
+    background-color: blue;
+    border: none;
+    border-radius: 25%;
+    text-align: center;
+    font-size: 2em;
+    width: fit-content;
+    height: fit-content;
+    margin-top: 10%;
 }
 
 #game-area {
@@ -54,7 +72,7 @@ body {
     font-family: "Dela Gothic One", sans-serif;
 }
 
-.player-health {
+#player-health {
     display: flex;
     flex-direction: row-reverse;
     color: white;
@@ -69,6 +87,8 @@ body {
 }
 
 #score {
+    display: flex;
+    flex-direction: row;
     text-align: left;
     position: absolute;
     top: 5px;
@@ -85,6 +105,8 @@ body {
 
 /* Displaying question (JS functionality later) */
 #question {
+    color: white;
+    font-family: "Dela Gothic One", sans-serif;
     text-decoration: underline;
 }
 
@@ -116,8 +138,8 @@ body {
     text-align: center;
 
     /* THESE ARE TEMPORARY (DEBUGGING ONLY) */
-    left: 50%;
+    /* left: 50%;
     right: 50%;
     top: 50%;
-    bottom: 50%;
+    bottom: 50%; */
 }
