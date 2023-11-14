@@ -77,7 +77,8 @@ function randomLetter() {
     const rand = Math.floor(Math.random() * (max - min + 1)) + min;
     const randomLetter = String.fromCharCode(rand);
     let chosenLetter = sampleLetters.get(randomLetter);
-    return chosenLetter; // Return the randomly chosen letter
+    let copyLetter = chosenLetter.cloneNode(true);
+    return copyLetter; // Return the randomly chosen letter
 }
 
 // Select random number
