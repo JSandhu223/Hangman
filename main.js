@@ -118,11 +118,18 @@ function updatePosition () {
     let currentFloatingLetters = document.getElementsByClassName("floating-letter");
     // Update the position of each floating letter
     for (let i = 0; i < currentFloatingLetters.length; i++) {
-        let floatingLetter = currentFloatingLetters[i];
+        const floatingLetter = currentFloatingLetters[i];
         let currentPos = parseInt(floatingLetter.style.left); // Get current position of floating letter
+        const elementWidth = floatingLetter.offsetWidth;
+        // Remove the floating letter from the game screen if it has reached the right side of the screen
+        if (currentPos > window.innerWidth) {
+            floatingLetter.remove();
+        }
         // console.log(currentPos); // DEBUG LINE
-        currentPos += speed;
-        floatingLetter.style.left = currentPos + "px"; // Set the position offset in percentage
+        else {
+            currentPos += speed;
+            floatingLetter.style.left = currentPos + "px"; // Set the position offset in percentage
+        }
     }
 }
 
