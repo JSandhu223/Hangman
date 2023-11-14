@@ -13,7 +13,7 @@ let selectedWord = null;
 const heartQueue = [];
 // This holds the correct guesses the player makes. O(1) lookup time
 const correctGuesses = new Set();
-const colors = ["red", "green", "blue"];
+const colors = ["red", "green", "blue", "purple", "orange"];
 const sampleLetters = new Map();
 
 
