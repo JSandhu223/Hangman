@@ -145,6 +145,7 @@ function updateTimer() {
         // Check if the timer has reached 0 seconds
         if (timeRemaining === 0) {
             clearInterval(countdown); // Stop the countdown when it reaches 0
+            gameOver(); // Game over when time runs out
             return;
         }
         
