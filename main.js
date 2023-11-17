@@ -193,8 +193,20 @@ function checkGuess(clickedLetter) {
     }
 }
 
+// This is shown when the player loses
+function displayModal(modal) {
+    modal.style.display = "flex";
+}
+
+// This is called when the user clicks 'restart'
+function hideModal(modal) {
+    modal.style.display = "none";
+}
+
 function gameOver() {
-    alert("Game Over!");
+    // alert("Game Over!");
+    let modal = document.getElementById("game-over-modal");
+    displayModal(modal);
 }
 
 // TODO: handle user losing health from selecting incorrect letter
