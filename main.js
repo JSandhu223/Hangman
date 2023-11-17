@@ -193,11 +193,19 @@ function checkGuess(clickedLetter) {
     }
 }
 
+function gameOver() {
+    alert("Game Over!");
+}
+
 // TODO: handle user losing health from selecting incorrect letter
 function removeHealth() {
-    let heart = heartQueue.pop();
-    if (heart !== undefined) {
+    if (heartQueue.length > 0) {
+        let heart = heartQueue.pop();
         heart.style.opacity = 0.5;
+    }
+
+    if (heartQueue.length === 0) {
+        gameOver();
     }
 }
 
