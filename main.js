@@ -234,10 +234,17 @@ function fillLetter(clickedLetter) {
     }
 }
 
+function getRandomWord() {
+    const min = 0;
+    const max = words.length - 1;
+    const rand = Math.floor(Math.random() * (max - min + 1)) + min;
+    return words[rand];
+}
+
 // Called every time a new game is started. Starts from a clean slate.
 function startNewGame() {
     // Select a word from the list of words (for testing, this will be the first word)
-    selectedWord = words[0];
+    selectedWord = getRandomWord();
     // This is the set of letters A-Z that will be randomly picked from to spawn floating letters
     createSampleLetters();
 
