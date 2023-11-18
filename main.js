@@ -212,6 +212,13 @@ function gameOver() {
     displayModal(modal);
 }
 
+function gameWin () {
+    let modal = document.getElementById("modal");
+    let modalText = document.getElementById("modal-text");
+    modalText.textContent = "You win!";
+    displayModal(modal);
+}
+
 // TODO: handle user losing health from selecting incorrect letter
 function removeHealth() {
     if (heartQueue.length > 0) {
@@ -224,6 +231,17 @@ function removeHealth() {
     }
 }
 
+function checkWin() {
+    let x = true; // Used to check if the set contains the letter
+    for (let i = 0; i < selectedWord.length; i++) {
+        if (correctGuesses.has(selectedWord[i]) === false) {
+            x = false;
+            break;
+        }
+    }
+    return x;
+}
+
 // Handles filling placeholder(s) with correctly guessed letter
 function fillLetter(clickedLetter) {
     // Get the span elements of the word display (these are children elements of a parent div)
@@ -233,6 +251,10 @@ function fillLetter(clickedLetter) {
             // Fill the letter at that index
             wordDisplay.children[i].textContent = clickedLetter;
         }
+    }
+
+    if (checkWin()) {
+        gameWin();
     }
 }
 
