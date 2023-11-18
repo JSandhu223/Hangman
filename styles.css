@@ -20,6 +20,7 @@ body {
     background-size: 3em 3em;
     /* Prevent horizontal scrolling */
     overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .main-menu {
@@ -46,7 +47,7 @@ body {
 }
 
 #game-area {
-    border: 3px solid black;
+    /* border: 3px solid black; */
     height: 100vh;
 }
 
