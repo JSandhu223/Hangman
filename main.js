@@ -5,7 +5,7 @@
 // UCID: 30054475
 
 // List of words
-const words = ["apple", "clock", "grenade"];
+const words = ["apple", "clock", "grenade", "mouse", "water"];
 // Maximum timer allowed for player to guess word
 let timeRemaining = 0;
 let selectedWord = null;
@@ -208,7 +208,7 @@ function gameOver() {
     // alert("Game Over!");
     let modal = document.getElementById("modal");
     let modalText = document.getElementById("modal-text");
-    modalText.textContent = "Game Over!";
+    modalText.textContent = "Game Over! The word was \'" + selectedWord + "\'";
     displayModal(modal);
 }
 
