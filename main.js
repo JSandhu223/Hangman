@@ -251,7 +251,7 @@ function startNewGame() {
     heartQueue.reverse();
 
     // Set timer element in HTML
-    timeRemaining = 10;
+    timeRemaining = 180;
     setTimer(timeRemaining);
     // Update timer (this gets called every second)
     updateTimer();
