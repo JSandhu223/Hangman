@@ -287,3 +287,22 @@ function handleFloatingLetterClick(event) {
         // reduce timer by n seconds
     }
 }
+
+// Handle the user clicking RESTART after a game over
+function handleRestartClick() {
+    window.location.href = "game.html";
+}
+
+// Add event listener to PLAY button on main menu
+let restart = document.getElementById("restart-button");
+restart.addEventListener("click", handleRestartClick);
+
+
+// Handle the user clicking MAIN MENU after a game over
+function handleMainMenuClick() {
+    window.location.href = "menu.html";
+}
+
+// Add event listener to PLAY button on main menu
+let mainMenu = document.getElementById("main-menu-button");
+mainMenu.addEventListener("click", handleMainMenuClick);
