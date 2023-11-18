@@ -105,6 +105,7 @@ body {
 
 /* Displaying question (JS functionality later) */
 #question {
+    display: none;
     color: white;
     font-family: "Dela Gothic One", sans-serif;
     text-decoration: underline;
