@@ -194,7 +194,7 @@ function checkGuess(clickedLetter) {
     }
 }
 
-// This is shown when the player loses
+// This is shown when the player wins or loses
 function displayModal(modal) {
     modal.style.display = "flex";
 }
@@ -206,7 +206,9 @@ function hideModal(modal) {
 
 function gameOver() {
     // alert("Game Over!");
-    let modal = document.getElementById("game-over-modal");
+    let modal = document.getElementById("modal");
+    let modalText = document.getElementById("modal-text");
+    modalText.textContent = "Game Over!";
     displayModal(modal);
 }
 
