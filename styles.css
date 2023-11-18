@@ -146,6 +146,7 @@ body {
 
 #game-over-modal {
     display: none;
+    flex-direction: column;
     justify-content: center;
     position: absolute;
     top: 50%;
@@ -157,8 +158,16 @@ body {
     text-align: center;
 }
 
+.buttons-modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
 .buttons-modal button {
-    display: block;
+    /* display: flex;
+    flex-direction: column; */
     color: white;
     background-color: blue;
     border: none;
@@ -167,6 +176,6 @@ body {
     font-size: 2em;
     width: fit-content;
     height: fit-content;
-    margin-top: 10%;
-    margin-bottom: 10%;
+    /* margin-top: 10%;
+    margin-bottom: 10%; */
 }
