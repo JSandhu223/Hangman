@@ -208,7 +208,7 @@ function gameOver() {
     // alert("Game Over!");
     let modal = document.getElementById("modal");
     let modalText = document.getElementById("modal-text");
-    modalText.textContent = "Game Over! The word was \'" + selectedWord + "\'";
+    modalText.textContent = "Game Over! The word was \'" + selectedWord.toUpperCase() + "\'";
     displayModal(modal);
 }
 
