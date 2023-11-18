@@ -5,7 +5,7 @@
 // UCID: 30054475
 
 // List of words
-const words = ["apple", "clock", "grenade"];
+const words = ["apple", "clock", "grenade", "mouse", "water"];
 // Maximum timer allowed for player to guess word
 let timeRemaining = 0;
 let selectedWord = null;
@@ -145,6 +145,7 @@ function updateTimer() {
         // Check if the timer has reached 0 seconds
         if (timeRemaining === 0) {
             clearInterval(countdown); // Stop the countdown when it reaches 0
+            gameOver(); // Game over when time runs out
             return;
         }
         
@@ -193,12 +194,52 @@ function checkGuess(clickedLetter) {
     }
 }
 
+// This is shown when the player wins or loses
+function displayModal(modal) {
+    modal.style.display = "flex";
+}
+
+// This is called when the user clicks 'restart'
+function hideModal(modal) {
+    modal.style.display = "none";
+}
+
+function gameOver() {
+    // alert("Game Over!");
+    let modal = document.getElementById("modal");
+    let modalText = document.getElementById("modal-text");
+    modalText.textContent = "Game Over! The word was \'" + selectedWord.toUpperCase() + "\'";
+    displayModal(modal);
+}
+
+function gameWin () {
+    let modal = document.getElementById("modal");
+    let modalText = document.getElementById("modal-text");
+    modalText.textContent = "You win!";
+    displayModal(modal);
+}
+
 // TODO: handle user losing health from selecting incorrect letter
 function removeHealth() {
-    let heart = heartQueue.pop();
-    if (heart !== undefined) {
+    if (heartQueue.length > 0) {
+        let heart = heartQueue.pop();
         heart.style.opacity = 0.5;
     }
+
+    if (heartQueue.length === 0) {
+        gameOver();
+    }
+}
+
+function checkWin() {
+    let x = true; // Used to check if the set contains the letter
+    for (let i = 0; i < selectedWord.length; i++) {
+        if (correctGuesses.has(selectedWord[i]) === false) {
+            x = false;
+            break;
+        }
+    }
+    return x;
 }
 
 // Handles filling placeholder(s) with correctly guessed letter
@@ -211,12 +252,23 @@ function fillLetter(clickedLetter) {
             wordDisplay.children[i].textContent = clickedLetter;
         }
     }
+
+    if (checkWin()) {
+        gameWin();
+    }
+}
+
+function getRandomWord() {
+    const min = 0;
+    const max = words.length - 1;
+    const rand = Math.floor(Math.random() * (max - min + 1)) + min;
+    return words[rand];
 }
 
 // Called every time a new game is started. Starts from a clean slate.
 function startNewGame() {
     // Select a word from the list of words (for testing, this will be the first word)
-    selectedWord = words[0];
+    selectedWord = getRandomWord();
     // This is the set of letters A-Z that will be randomly picked from to spawn floating letters
     createSampleLetters();
 
@@ -230,7 +282,7 @@ function startNewGame() {
     heartQueue.reverse();
 
     // Set timer element in HTML
-    timeRemaining = 10;
+    timeRemaining = 180;
     setTimer(timeRemaining);
     // Update timer (this gets called every second)
     updateTimer();
@@ -249,15 +301,6 @@ window.addEventListener("load", function () {
     startNewGame();
 })
 
-// // Handle the user clicking PLAY on main menu
-// function handlePlayClick() {
-//     window.location.href = "game.html";
-// }
-
-// // Add event listener to PLAY button on main menu
-// let play = document.getElementById("play-button");
-// play.addEventListener("click", handlePlayClick);
-
 // Handle the user clicking on a floating letter
 function handleFloatingLetterClick(event) {
     // Grab the element that was clicked
@@ -275,3 +318,22 @@ function handleFloatingLetterClick(event) {
         // reduce timer by n seconds
     }
 }
+
+// Handle the user clicking RESTART after a game over
+function handleRestartClick() {
+    window.location.href = "game.html";
+}
+
+// Add event listener to PLAY button on main menu
+let restart = document.getElementById("restart-button");
+restart.addEventListener("click", handleRestartClick);
+
+
+// Handle the user clicking MAIN MENU after a game over
+function handleMainMenuClick() {
+    window.location.href = "menu.html";
+}
+
+// Add event listener to PLAY button on main menu
+let mainMenu = document.getElementById("main-menu-button");
+mainMenu.addEventListener("click", handleMainMenuClick);

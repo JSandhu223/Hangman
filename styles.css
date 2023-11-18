@@ -20,6 +20,7 @@ body {
     background-size: 3em 3em;
     /* Prevent horizontal scrolling */
     overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .main-menu {
@@ -46,7 +47,7 @@ body {
 }
 
 #game-area {
-    border: 3px solid black;
+    /* border: 3px solid black; */
     height: 100vh;
 }
 
@@ -105,6 +106,7 @@ body {
 
 /* Displaying question (JS functionality later) */
 #question {
+    display: none;
     color: white;
     font-family: "Dela Gothic One", sans-serif;
     text-decoration: underline;
@@ -142,4 +144,45 @@ body {
     right: 50%;
     top: 50%;
     bottom: 50%; */
+}
+
+#modal {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 150px;
+    background: rgb(9, 86, 228);
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+#modal-text {
+    color: white;
+    font-size: 1.5em;
+}
+
+.buttons-modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.buttons-modal button {
+    color: white;
+    background-color: blue;
+    border: none;
+    border-radius: 25%;
+    text-align: center;
+    font-size: 2em;
+    width: fit-content;
+    height: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
 }
