@@ -1,3 +1,9 @@
+// Course: SENG 513
+// Date: OCT 23, 2023
+// Assignment 2
+// Name: Jasraj Sandhu
+// UCID: 30054475
+
 // Handle the user clicking PLAY on main menu
 function handlePlayClick() {
     window.location.href = "game.html";
